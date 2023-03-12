@@ -7,11 +7,16 @@
       <Link href="/">Home</Link>
       <Link href="/about">About</Link>
     </div>
-    <div class="content"><slot /></div>
+    <div class="content">
+      <Hydrate>
+        <slot />
+      </Hydrate>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import Hydrate from "./Hydrate.vue"
 import Link from './Link.vue'
 </script>
 

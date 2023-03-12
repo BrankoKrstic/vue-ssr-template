@@ -7,9 +7,12 @@ import type { PageContextBuiltIn } from 'vite-plugin-ssr'
 // import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router' // When using Client Routing
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client' // When using Server Routing
 import type { ComponentPublicInstance } from 'vue'
+import type { QueryClient } from '@tanstack/vue-query'
 
 type Page = ComponentPublicInstance // https://stackoverflow.com/questions/63985658/how-to-type-vue-instance-out-of-definecomponent-in-vue-3/63986086#63986086
-type PageProps = {}
+type PageProps = {
+  vueQueryState: QueryClient | undefined
+}
 
 export type PageContextCustom = {
   Page: Page

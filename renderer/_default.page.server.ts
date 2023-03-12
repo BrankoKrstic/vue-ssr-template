@@ -3,6 +3,7 @@ import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
 import { createApp } from './app'
 import logoUrl from './logo.svg'
 import type { PageContextServer } from './types'
+import { VUE_QUERY_STATE } from '../pages/countries/countryData'
 
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
@@ -10,6 +11,7 @@ export const passToClient = ['pageProps', 'urlPathname']
 
 async function render(pageContext: PageContextServer) {
   const app = createApp(pageContext)
+  app.provide(VUE_QUERY_STATE, pageContext.pageProps?.vueQueryState)
   const appHtml = await renderToString(app)
 
   // See https://vite-plugin-ssr.com/head
