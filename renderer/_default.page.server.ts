@@ -7,7 +7,7 @@ import { VUE_QUERY_STATE } from '../pages/countries/countryData'
 
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname']
+export const passToClient = ['pageProps', 'urlPathname', 'routeParams']
 
 async function render(pageContext: PageContextServer) {
   const app = createApp(pageContext)
